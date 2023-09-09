@@ -1,0 +1,174 @@
+-- made by therapisttt on discord
+
+local Map = game.Workspace.Map
+local PizzaPlace = Map.PizzaPlace
+local IceCream = Map:FindFirstChild("Ice Cream Store")
+
+local FirstOrderSystemPP = PizzaPlace:FindFirstChild("OrderSystem")
+if FirstOrderSystemPP then
+	FirstOrderSystemPP.Name = "OrderSystem2"
+end
+
+local SecondOrderSystemPP = PizzaPlace:FindFirstChild("OrderSystem")
+
+local IceCreamOrderSystem = IceCream.OrderSystem
+
+local function findFirstChildWithCertainValue(parent, valueToFind)
+    for _, child in pairs(parent:GetChildren()) do
+        if child:IsA("StringValue") and child.Value == valueToFind then
+            return child
+        else
+            local foundChild = findFirstChildWithCertainValue(child, valueToFind)
+            if foundChild then
+                return foundChild
+            end
+        end
+    end
+    return nil
+end
+
+local SausagePizza = "rbxassetid://8194156647"
+local PepperoniPizza = "rbxassetid://8194156806"
+local CheesePizza = "rbxassetid://8194156727"
+
+local IceCreamBar = "rbxassetid://8194157085"
+local IceCreamChocolate = "rbxassetid://8194156946"
+local IceCreamSundae = "rbxassetid://8194156889"
+local BananaSplit = "rbxassetid://8194157235"
+
+local Register1_Os2_PP = FirstOrderSystemPP.Reg1
+local Register2_Os2_PP = FirstOrderSystemPP.Reg2
+
+local Register1_Os1_PP = SecondOrderSystemPP.Reg1
+local Register2_Os1_PP = SecondOrderSystemPP.Reg2
+
+local Register1_IC = IceCreamOrderSystem.Reg1
+local Register2_IC = IceCreamOrderSystem.Reg2
+
+local Noob1_IC = IceCreamOrderSystem.Noob1
+local Noob2_IC = IceCreamOrderSystem.Noob2
+
+local Noob1_Os2 = FirstOrderSystemPP.Noob1
+local Noob2_Os2 = FirstOrderSystemPP.Noob2
+
+local Noob1_Os1 = SecondOrderSystemPP.Noob1
+local Noob2_Os1 = SecondOrderSystemPP.Noob2
+
+local function Loop()
+    local Noob1_Os2_Order = nil
+    local Noob2_Os2_Order = nil
+    
+    local Noob1_Os1_Order = nil
+    local Noob2_Os1_Order = nil
+    
+    local Noob1_IC_Order = nil
+    local Noob2_IC_Order = nil
+    
+    if Noob1_Os2.Transparency == 0 then
+        if Noob1_Os2.Order.ImageLabel.Image == SausagePizza then
+            Noob1_Os2_Order = "Sausage"
+        elseif Noob1_Os2.Order.ImageLabel.Image == PepperoniPizza then
+            Noob1_Os2_Order = "Pepperoni"
+        elseif Noob2_Os1.Order.ImageLabel.Image == CheesePizza then
+            Noob1_Os2_Order = "CookedCheese"
+        end
+    end
+    
+    if Noob2_Os2.Transparency == 0 then
+        if Noob2_Os2.Order.ImageLabel.Image == SausagePizza then
+            Noob2_Os2_Order = "Sausage"
+        elseif Noob2_Os2.Order.ImageLabel.Image == PepperoniPizza then
+            Noob2_Os2_Order = "Pepperoni"
+        elseif Noob2_Os2.Order.ImageLabel.Image == CheesePizza then
+            Noob2_Os2_Order = "CookedCheese"
+        end
+    end
+    
+    if Noob1_Os1.Transparency == 0 then
+        if Noob1_Os1.Order.ImageLabel.Image == SausagePizza then
+            Noob1_Os1_Order = "Sausage"
+        elseif Noob1_Os1.Order.ImageLabel.Image == PepperoniPizza then
+            Noob1_Os1_Order = "Pepperoni"
+        elseif Noob1_Os1.Order.ImageLabel.Image == CheesePizza then
+            Noob1_Os1_Order = "CookedCheese"
+        end
+    end
+    
+    if Noob2_Os1.Transparency == 0 then
+        if Noob2_Os1.Order.ImageLabel.Image == SausagePizza then
+            Noob2_Os1_Order = "Sausage"
+        elseif Noob2_Os1.Order.ImageLabel.Image == PepperoniPizza then
+            Noob2_Os1_Order = "Pepperoni"
+        elseif Noob2_Os1.Order.ImageLabel.Image == CheesePizza then
+            Noob2_Os1_Order = "CookedCheese"
+        end
+    end
+    
+    if Noob2_IC.Transparency == 0 then
+        if Noob2_IC.Order.ImageLabel.Image == IceCreamSundae then
+            Noob2_IC_Order = "Sundae"
+        elseif Noob2_IC.Order.ImageLabel.Image == IceCreamBar then
+            Noob2_IC_Order = "Ice Cream Bar"
+        elseif Noob2_IC.Order.ImageLabel.Image == IceCreamChocolate then
+            Noob2_IC_Order = "Chocolate Ice Cream"
+        elseif Noob2_IC.Order.ImageLabel.Image == BananaSplit then
+            Noob2_IC_Order = "Banana Split"
+        end
+    end
+    
+    if Noob1_IC.Transparency == 0 then
+        if Noob1_IC.Order.ImageLabel.Image == IceCreamSundae then
+            Noob1_IC_Order = "Sundae"
+        elseif Noob1_IC.Order.ImageLabel.Image == IceCreamBar then
+            Noob1_IC_Order = "Ice Cream Bar"
+        elseif Noob1_IC.Order.ImageLabel.Image == IceCreamChocolate then
+            Noob1_IC_Order = "Chocolate Ice Cream"
+        elseif Noob1_IC.Order.ImageLabel.Image == BananaSplit then
+            Noob1_IC_Order = "Banana Split"
+        end
+    end
+    
+    local Noob1_Os2_Selection = findFirstChildWithCertainValue(Register1_Os2_PP, Noob1_Os2_Order)
+    local Noob2_Os2_Selection = findFirstChildWithCertainValue(Register2_Os2_PP, Noob2_Os2_Order)
+    
+    local Noob1_Os1_Selection = findFirstChildWithCertainValue(Register1_Os1_PP, Noob1_Os1_Order)
+    local Noob2_Os1_Selection = findFirstChildWithCertainValue(Register2_Os1_PP, Noob2_Os1_Order)
+    
+    local Noob1_IC_Selection = findFirstChildWithCertainValue(Register1_IC, Noob1_IC_Order)
+    local Noob2_IC_Selection = findFirstChildWithCertainValue(Register2_IC, Noob2_IC_Order)
+    
+    if Noob1_Os2_Selection then
+        wait(0.1)
+        fireclickdetector(Noob1_Os2_Selection.Parent.ClickDetector)
+    end
+    
+    if Noob2_Os2_Selection then
+        wait(0.1)
+        fireclickdetector(Noob2_Os2_Selection.Parent.ClickDetector)
+    end
+    
+    if Noob1_Os1_Selection then
+        wait(0.1)
+        fireclickdetector(Noob1_Os1_Selection.Parent.ClickDetector)
+    end
+    
+    if Noob2_Os1_Selection then
+        wait(0.1)
+        fireclickdetector(Noob2_Os1_Selection.Parent.ClickDetector)
+    end
+        
+    if Noob2_IC_Selection then
+        wait(0.1)
+        fireclickdetector(Noob2_IC_Selection.Parent.ClickDetector)
+    end
+    
+    if Noob1_IC_Selection then
+        wait(0.1)
+        fireclickdetector(Noob1_IC_Selection.Parent.ClickDetector)
+    end
+end
+
+while true do
+    wait(0.1)
+    Loop()
+end
